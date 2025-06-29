@@ -3,6 +3,9 @@ import { ToastContainer, toast } from "react-toastify";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
 defineElement(lottie.loadAnimation);
 
 const notify = () =>
@@ -46,7 +49,7 @@ const handleSubmit = async (e) => {
   const data = { website, username, password };
 
   try {
-    const response = await fetch("http://localhost:3000/", {
+    const response = await fetch(API_BASE, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
