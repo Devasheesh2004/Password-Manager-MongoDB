@@ -16,7 +16,14 @@ const dbName = 'passdeck_DB';
 let db;
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://password-manager-mongodb-1.onrender.com', // your frontend URL
+  methods: ['GET', 'POST', 'DELETE'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 // MongoDB Connection (with TLS compatibility fix for Render)
