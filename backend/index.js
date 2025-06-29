@@ -7,7 +7,7 @@ const bodyparser = require('body-parser');
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const url = 'mongodb+srv://devasheeshupreti:<Devasheesh@123>@cluster0.peny8fm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = 'passdeck';
 
