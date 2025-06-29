@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
-const url = 'mongodb://localhost:27017/';
+const url = 'mongodb+srv://devasheeshupreti:<Devasheesh@123>@cluster0.i3pf5xh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = 'passdeck';
 
 // Middleware
@@ -22,7 +22,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
   .then((client) => {
     db = client.db(dbName);
     app.listen(port, () => {
-      console.log(`✅ Server running at http://localhost:${port}`);
+      console.log(`✅ Server running at ${port}`);
     });
   })
   .catch((err) => {
