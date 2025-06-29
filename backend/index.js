@@ -19,10 +19,11 @@ let db;
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB Connection
+// MongoDB Connection (with TLS compatibility fix for Render)
 MongoClient.connect(mongoUrl, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  tlsAllowInvalidCertificates: true  // ✅ Fix for Render's TLS/SSL issue
 })
   .then(client => {
     db = client.db(dbName);
