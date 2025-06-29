@@ -3,7 +3,7 @@ import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
 import { ToastContainer, toast } from "react-toastify";
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 defineElement(lottie.loadAnimation);
 
