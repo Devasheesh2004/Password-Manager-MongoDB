@@ -2,49 +2,53 @@ const express = require('express');
 const dotenv = require('dotenv');
 const { MongoClient, ObjectId } = require('mongodb');
 const cors = require('cors');
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-const url = 'mongodb+srv://devasheeshupreti:Devasheesh%40123@cluster0.peny8fm.mongodb.net/passdeck?retryWrites=true&w=majority&tls=true&tlsInsecure=false';
 
-const dbName = 'passdeck';
+// Use MongoDB URI from environment variable
+const mongoUrl = process.env.MONGO_URL;
+const dbName = 'passdeck_DB';
+
+let db;
 
 // Middleware
 app.use(cors());
-app.use(bodyparser.json());
+app.use(bodyParser.json());
 
-let db; // Declare globally
-
-// Connect to MongoDB and start server
-MongoClient.connect(url)
-  .then((client) => {
+// MongoDB Connection
+MongoClient.connect(mongoUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(client => {
     db = client.db(dbName);
     app.listen(port, () => {
-      console.log(`✅ Server running at ${port}`);
+      console.log(`✅ Server running on port ${port}`);
     });
   })
-  .catch((err) => {
+  .catch(err => {
     console.error('❌ MongoDB connection failed:', err);
   });
 
 // Routes
 
-// GET: Fetch all passwords
+// GET all passwords
 app.get('/', async (req, res) => {
   try {
     const passwords = db.collection('passwords');
-    const findResult = await passwords.find({}).toArray();
-    res.json(findResult);
+    const result = await passwords.find({}).toArray();
+    res.json(result);
   } catch (err) {
-    console.error("GET error:", err);
+    console.error('GET error:', err);
     res.status(500).send({ success: false });
   }
 });
 
-// POST: Save a password
+// POST a new password
 app.post('/', async (req, res) => {
   try {
     const passwords = db.collection('passwords');
@@ -52,12 +56,12 @@ app.post('/', async (req, res) => {
     const result = await passwords.insertOne(password);
     res.send({ success: true, result });
   } catch (err) {
-    console.error("POST error:", err);
+    console.error('POST error:', err);
     res.status(500).send({ success: false });
   }
 });
 
-// DELETE: Delete by _id
+// DELETE by _id
 app.delete('/', async (req, res) => {
   try {
     const passwords = db.collection('passwords');
@@ -65,7 +69,7 @@ app.delete('/', async (req, res) => {
     const result = await passwords.deleteOne({ _id: new ObjectId(_id) });
     res.send({ success: true, result });
   } catch (err) {
-    console.error("DELETE error:", err);
+    console.error('DELETE error:', err);
     res.status(500).send({ success: false });
   }
 });
