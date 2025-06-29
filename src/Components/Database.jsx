@@ -3,11 +3,13 @@ import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
 import { ToastContainer, toast } from "react-toastify";
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 defineElement(lottie.loadAnimation);
 
 const getData = async () => {
   try {
-    const res = await fetch("http://localhost:3000/");
+    const res = await fetch(API_BASE);
     const data = await res.json();
     console.log("Fetched data from backend:", data); 
     return data || [];
@@ -51,7 +53,7 @@ const Database = (props) => {
     if (!item || !item._id) return;
 
     try {
-      const res = await fetch("http://localhost:3000/", {
+      const res = await fetch(API_BASE, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
