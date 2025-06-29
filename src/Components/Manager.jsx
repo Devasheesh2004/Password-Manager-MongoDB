@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
   const data = { website, username, password };
 
   try {
-    const response = await fetch(API_BASE, {
+    const response = await fetch(`${API_BASE}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
