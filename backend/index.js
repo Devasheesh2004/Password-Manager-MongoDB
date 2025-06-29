@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
-const url = 'mongodb+srv://devasheeshupreti:<Devasheesh@123>@cluster0.i3pf5xh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const url = 'mongodb+srv://devasheeshupreti:<Devasheesh@123>@cluster0.peny8fm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = 'passdeck';
 
 // Middleware
