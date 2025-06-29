@@ -9,7 +9,7 @@ defineElement(lottie.loadAnimation);
 
 const getData = async () => {
   try {
-    const res = await fetch(API_BASE);
+    const res = await fetch(`${API_BASE}/`);
     const data = await res.json();
     console.log("Fetched data from backend:", data); 
     return data || [];
@@ -53,7 +53,7 @@ const Database = (props) => {
     if (!item || !item._id) return;
 
     try {
-      const res = await fetch(API_BASE, {
+      const res = await fetch(`${API_BASE}/`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
