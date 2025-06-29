@@ -18,7 +18,7 @@ app.use(bodyparser.json());
 let db; // Declare globally
 
 // Connect to MongoDB and start server
-MongoClient.connect(url, { useUnifiedTopology: true })
+MongoClient.connect(url, { useNewUrlParser: true })
   .then((client) => {
     db = client.db(dbName);
     app.listen(port, () => {
