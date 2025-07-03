@@ -83,9 +83,9 @@ const handleSubmit = async (e) => {
 
 const Manager = (props) => {
   return (
+  <ToastContainer />
     <div className="w-full flex justify-center items-center">
       <div className="flex flex-col items-center justify-center w-full px-[2vh] py-[1vh] gap-[2vh] max-h-[53vh]">
-        <ToastContainer />
 
         <h1 className="text-[clamp(1.5rem,3vh,2.25rem)] font-bold mb-[1vh] text-center leading-tight">
           Password Manager
