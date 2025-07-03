@@ -36,7 +36,7 @@ const useUserData = () => {
     const interval = setInterval(async () => {
       const data = await getData();
       setUserData(data);
-    }, 1000); // 1000ms = 1s
+    }, 1000); 
 
     return () => clearInterval(interval);
   }, []);
