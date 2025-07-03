@@ -8,7 +8,7 @@ A full-stack **Password Manager** built using **React + Vite** on the frontend a
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Used
 
 ### Frontend:
 - ⚛️ React (with Vite for faster builds)
