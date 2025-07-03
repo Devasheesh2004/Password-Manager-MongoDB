@@ -13,9 +13,9 @@ const notify = () =>
   toast.success("Password Saved Successfully !!", {
     position: "top-right",
     className: "text-green-400 relative top-[80px] font-bold bg-gray-800",
-    autoClose: 1000,
     icon: false,
     progressClassName: "bg-gray-800",
+    autoClose: 1000,
   });
 
 const handleClick = () => {
