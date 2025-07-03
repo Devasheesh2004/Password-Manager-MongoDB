@@ -21,7 +21,4 @@ A full-stack **Password Manager** built using **React + Vite** on the frontend a
 - 🔐 CORS, Body-parser, dotenv for middleware and config
 - 🌐 Hosted on: Render
 
----
-
-## 📁 Project Structure
 
