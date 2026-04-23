@@ -1,12 +1,77 @@
-# React + Vite
+# Password Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A secure, intuitive, and beautifully designed full-stack Password Manager application. Keep all your website credentials neatly organized and securely stored in one place!
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
+Check out the live application here: **[Password Manager Live](https://password-manager-mongodb-1.onrender.com/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- **Store Credentials**: Easily save website URLs, usernames, and passwords.
+- **Copy to Clipboard**: One-click copy functionality for your saved usernames, passwords, and website URLs.
+- **Toggle Visibility**: Effortlessly show or hide your saved passwords for enhanced privacy.
+- **Beautiful UI/UX**: Clean and responsive user interface powered by Tailwind CSS, with lively animations using Lottie and Lordicon.
+- **Toast Notifications**: Real-time interactive feedback for user actions like saving, copying, or deleting a password.
+- **Full-Stack Implementation**: Fully functional custom backend built with Node.js and Express connected to a MongoDB database.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- **React.js** (Bootstrapped with Vite for extremely fast HMR)
+- **Tailwind CSS** (for styling and responsiveness)
+- **Lordicon / Lottie-web** (for engaging dynamic animations)
+- **React-Toastify** (for seamless toast notifications)
+
+### Backend
+- **Node.js & Express.js** (Server runtime and routing API)
+- **MongoDB** (NoSQL Database for securely storing credentials via the native `mongodb` driver)
+- **Cors & Body-Parser** (Middleware)
+- **Dotenv** (Environment variable management)
+
+## 💻 Running Locally
+
+### Prerequisites
+Make sure you have Node.js installed on your machine and a valid MongoDB cluster URI.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Devasheesh2004/Password-Manager-MongoDB.git
+   cd "Password-Manager MongoDB"
+   ```
+
+2. **Frontend Setup:**
+   - Install dependencies in the root directory:
+     ```bash
+     npm install
+     ```
+   - Configure the environment variable in the root `.env` file to point to your backend:
+     ```env
+     VITE_API_BASE_URL=http://localhost:3000
+     ```
+   - Start the Vite development server:
+     ```bash
+     npm run dev
+     ```
+
+3. **Backend Setup:**
+   - Navigate to the backend directory:
+     ```bash
+     cd backend
+     ```
+   - Install backend dependencies:
+     ```bash
+     npm install
+     ```
+   - Create a `.env` file inside the `backend` folder and add your MongoDB Connection String and Port:
+     ```env
+     MONGO_URL=your_mongodb_connection_string
+     PORT=3000
+     ```
+   - Start the backend server:
+     ```bash
+     npm start
+     ```
+
+## 📜 License
+This project is open-source.
