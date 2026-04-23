@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
 import { ToastContainer, toast } from "react-toastify";
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 defineElement(lottie.loadAnimation);
 
 const getData = async () => {
   try {
-    const res = await fetch("http://localhost:3000/");
+    const res = await fetch(`${API_BASE}/`);
     const data = await res.json();
     console.log("Fetched data from backend:", data); 
     return data || [];
@@ -51,7 +52,7 @@ const Database = (props) => {
     if (!item || !item._id) return;
 
     try {
-      const res = await fetch("http://localhost:3000/", {
+      const res = await fetch(`${API_BASE}/`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -233,6 +234,14 @@ const Database = (props) => {
                           </svg>
                         )}
                       </button>
+                      <lord-icon
+                        className="hover:cursor-pointer"
+                        style={{ width: "1.5625rem", height: "1.5625rem", minWidth: "1.5625rem", minHeight: "1.5625rem" }}
+                        src="https://cdn.lordicon.com/iykgtsbt.json"
+                        trigger="click"
+                        onClick={() => handleCopy(idx, "password")}
+                        title="Copy Password"
+                      ></lord-icon>
                     </div>
                   </div>
                   <div className="w-1/4 h-12 font-roboto flex justify-center gap-2 md:gap-5 items-center text-black px-1">

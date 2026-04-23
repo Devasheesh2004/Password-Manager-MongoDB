@@ -5,7 +5,7 @@ import DivBackground from './Components/divBackground'
 import Manager from './Components/Manager'
 import Database from './Components/Database'
 import { useState } from 'react'
-import { set } from 'mongoose'
+
 // If using Tailwind CSS, ensure it's imported in your main entry file (e.g., main.jsx or index.js)
 
 function App() {
